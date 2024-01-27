@@ -44,7 +44,7 @@ BIN-SFC
 │  ├─ logger_tool.py
 │  └─ metric_tool.py
 ├─ models
-│  ├─ BIN_SFC.py
+│  ├─ SFBIN.py
 │  ├─ __init__.py
 │  ├─ _utils.py
 │  ├─ basic_model.py
@@ -59,8 +59,8 @@ BIN-SFC
 │  └─ vis
 ├─ requirements.txt
 ├─ script
-│  ├─ eval_BIN-SFC.sh
-│  └─ run_BIN-SFC.sh
+│  ├─ eval_SFBIN.sh
+│  └─ run_SFBIN.sh
 ├─ train.py
 └─ utils.py
 
@@ -73,20 +73,20 @@ BIN-SFC
 clone this repo:
 
 ```sh
-git clone https://github.com/Mryao-yuan/BIN-SFC.git
+git clone https://github.com/Mryao-yuan/SFBIN.git
 cd BIN-SFC
 ```
 
 ### Train
 
 ```sh
-sh script/run_BIN-SFC.sh
+sh script/run_SFBIN.sh
 ``` 
 
 ### Test
 
 ```sh
-sh script/eval_BIN-SFC.sh
+sh script/eval_SFBIN.sh
 ``` 
 
 ### Qualitative Results
