@@ -6,11 +6,10 @@ import torch.nn.functional as F
 from torch.optim import lr_scheduler
 
 import functools
-from einops import rearrange
 ########## compare ############
 import models
 
-from models.BIN_SFC import BIN_SFC
+from models.SFBIN import SFBIN
 
 ###############################################################################
 # Helper Functions
@@ -123,8 +122,8 @@ def init_net(net, init_type='normal', init_gain=0.02, gpu_ids=[]):
 
 def define_G(args, init_type='normal', init_gain=0.02, gpu_ids=[]):
 
-    if args.net_G == 'BIN_SFC':
-        net = BIN_SFC(output_sigmoid=False)
+    if args.net_G == 'SFBIN':
+        net = SFBIN(output_sigmoid=False)
     else:
         raise NotImplementedError('Generator model name [%s] is not recognized' % args.net_G)
     return init_net(net, init_type, init_gain, gpu_ids)

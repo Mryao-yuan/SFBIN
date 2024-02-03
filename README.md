@@ -2,7 +2,7 @@
 
 Here, we provide the pytorch implementation of the paper: Spatial Focused Bi-temporal Interactive Network for Remote Sensing Images Change Detection.
 
-![](./image/README/Network.png)
+![](./image/Network.png)
 
 
 ## Requirements
@@ -27,7 +27,7 @@ wandb==0.13.5
 ### Filetree
 
 ```
-BIN-SFC
+SFBIN
 ├─ README.md
 ├─ data_config.py
 ├─ datasets
@@ -35,11 +35,10 @@ BIN-SFC
 │  └─ data_utils.py
 ├─ eval.py
 ├─ image
-│  └─ README
 │     ├─ Network.png
-│     ├─ compare-clcd.png
-│     ├─ compare-egy.png
-│     └─ compare-levir-cd.png
+│     ├─ clcd.png
+│     ├─ egy.png
+│     └─ levir-cd.png
 ├─ misc
 │  ├─ logger_tool.py
 │  └─ metric_tool.py
@@ -74,7 +73,11 @@ clone this repo:
 
 ```sh
 git clone https://github.com/Mryao-yuan/SFBIN.git
+<<<<<<< HEAD
 cd BIN-SFC
+=======
+cd SFBIN
+>>>>>>> modify name
 ```
 
 ### Train
@@ -92,17 +95,17 @@ sh script/eval_SFBIN.sh
 ### Qualitative Results
 
 #### results on [LEVIR-CD](https://www.mdpi.com/2072-4292/12/10/1662/pdf)
-![](./image/README/compare-levir-cd.png)
+![](./image/levir.png)
 
 #### results on [CLCD](https://ieeexplore.ieee.org/abstract/document/10145434)
-![](./image/README/compare-clcd.png)
+![](./image/clcd.png)
 
 #### results on [EGY](https://ieeexplore.ieee.org/iel7/4609443/4609444/09780164.pdf)
-![](./image/README/compare-egy.png)
+![](./image/egy.png)
 
 ### Copyright
 
-The project has been licensed by Apache-2.0. Please refer to for details. [LICENSE.txt](https://github.com/Mryao-yuan/BIN-SFC/LICENSE.txt)
+The project has been licensed by Apache-2.0. Please refer to for details. [LICENSE.txt](https://github.com/Mryao-yuan/SFBIN/LICENSE.txt)
 
 ### Thanks
 
@@ -110,5 +113,5 @@ The project has been licensed by Apache-2.0. Please refer to for details. [LICEN
 * [BIT](https://github.com/justchenhao/BIT_CD)
 * [ChangeFormer](https://github.com/wgcban/ChangeFormer)
 
-(Our BIN-SFC is implemented on the code provided in this repository)
+(Our SFBIN is implemented on the code provided in this repository)
 
