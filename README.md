@@ -73,11 +73,7 @@ clone this repo:
 
 ```sh
 git clone https://github.com/Mryao-yuan/SFBIN.git
-<<<<<<< HEAD
-cd BIN-SFC
-=======
 cd SFBIN
->>>>>>> modify name
 ```
 
 ### Train
