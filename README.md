@@ -1,6 +1,6 @@
-# Spatial Focused Bi-temporal Interactive Network for Remote Sensing Images Change Detection
+# Spatial Focused Bitemporal Interactive Network for Remote Sensing Images Change Detection
 
-Here, we provide the pytorch implementation of the paper: Spatial Focused Bi-temporal Interactive Network for Remote Sensing Images Change Detection.
+Here, we provide the pytorch implementation of the paper: Spatial Focused Bitemporal Interactive Network for Remote Sensing Images Change Detection.
 
 ![](./image/Network.png)
 
