@@ -46,47 +46,14 @@ class CDEvaluator():
         self.checkpoint_dir = args.checkpoint_dir
         self.vis_dir = args.vis_dir
 
-        # analysis the pred result
-        self.COLOR_MAP = {'0': (0, 0, 0), # black is TN
-                          '1': (255, 255, 0), # yellow is FP 误检
-                          '2': (255, 0, 0), # red is FN 漏检
-                          '3':(0, 255, 0)} # green is TP
 
         # check and create model dir
         if os.path.exists(self.checkpoint_dir) is False:
             os.mkdir(self.checkpoint_dir)
         if os.path.exists(self.vis_dir) is False:
             os.mkdir(self.vis_dir)
-        if os.path.exists(os.path.join(self.vis_dir,'pred')) is False:
-            os.mkdir(os.path.join(self.vis_dir,'pred'))
-        if os.path.exists(os.path.join(self.vis_dir,'analyse')) is False:
-            os.mkdir(os.path.join(self.vis_dir,'analyse'))
-        if os.path.exists(os.path.join(self.vis_dir,'gt')) is False:
-            os.mkdir(os.path.join(self.vis_dir,'gt'))
-        if os.path.exists(os.path.join(self.vis_dir,'compare')) is False:
-            os.mkdir(os.path.join(self.vis_dir,'compare'))
-        if os.path.exists(os.path.join(self.vis_dir,'t1')) is False:
-            os.mkdir(os.path.join(self.vis_dir,'t1'))
-        if os.path.exists(os.path.join(self.vis_dir,'t2')) is False:
-            os.mkdir(os.path.join(self.vis_dir,'t2'))
-        
-    def gray2rgb(self, grayImage: np.ndarray, color_type: list):
-        rgbImg = np.zeros((grayImage.shape[0], grayImage.shape[1], 3), dtype=np.uint8)
-        grayImage=grayImage[:,:,1] # 输入灰度图像三通道,压缩为单通道
-        for type_ in color_type:
-            row,col= np.where(grayImage == type_)
-            if (len(row) == 0):
-                continue
-            color = self.COLOR_MAP[str(type_)]
-            rgbImg[row, col] = color
-        return rgbImg
-    def res_copare_pixel(self, pred, gt):
-        assert np.max(pred) < self.n_class, 'pred must be in range [0, %d]' % self.n_class
-        assert np.max(gt) < self.n_class, 'gt must be in range [0, %d]' % self.n_class
-        visual_gray =self.n_class * gt.astype(int) + pred.astype(int)
-        visual_rgb = self.gray2rgb(visual_gray,color_type=list(range(self.n_class**2)))
-        return visual_rgb
-    
+       
+  
     def _load_checkpoint(self, checkpoint_name='best_ckpt.pt'):
 
         if os.path.exists(os.path.join(self.checkpoint_dir, checkpoint_name)):
@@ -144,26 +111,12 @@ class CDEvaluator():
             vis = np.concatenate([vis_input, vis_input2, vis_pred, vis_gt], axis=0)
             vis = np.clip(vis, a_min=0.0, a_max=1.0)
             vis_gt = np.clip(vis_gt, a_min=0.0, a_max=1.0)
-            # # todo save gt
-            # file_name = os.path.join(
-            #     self.vis_dir,'gt' ,'gt_' + str(self.batch_id)+'.jpg')
-            # plt.imsave(file_name, vis_gt)
-            # # todo save the t1 t2 pred gt img
-            # file_name = os.path.join(
-            #     self.vis_dir, 'compare',str(self.batch_id)+'.jpg')
-            # plt.imsave(file_name, vis)
-            # # TODO save the t1 t2 img
-            # file_name = os.path.join(self.vis_dir,'t1',str(self.batch_id)+'.jpg')
-            # plt.imsave(file_name,vis_input)
-            # file_name = os.path.join(self.vis_dir,'t2',str(self.batch_id)+'.jpg')
-            # plt.imsave(file_name,vis_input2)
-            # # todo save the pred img
+       
             vis_pred = np.clip(vis_pred, a_min=0.0, a_max=1.0)
             pred_file_name = os.path.join(
                 self.vis_dir, 'pred','eval_' + str(self.batch_id)+'_pred.jpg')
             plt.imsave(pred_file_name, vis_pred)
-            # # todo save analyse pred img
-            vis_analyse = self.res_copare_pixel(pred=vis_pred, gt=vis_gt)
+          
             plt.imsave(os.path.join(self.vis_dir,'analyse', 'eval_' + str(self.batch_id)+'_analyse.jpg'), vis_analyse)
 
     def _collect_epoch_states(self):
