@@ -27,7 +27,7 @@ wandb==0.13.5
 ### Filetree
 
 ```
-SFBIN
+SFBI-Net
 ├─ README.md
 ├─ data_config.py
 ├─ datasets
@@ -43,7 +43,7 @@ SFBIN
 │  ├─ logger_tool.py
 │  └─ metric_tool.py
 ├─ models
-│  ├─ SFBIN.py
+│  ├─ SFBI-Net.py
 │  ├─ __init__.py
 │  ├─ _utils.py
 │  ├─ basic_model.py
@@ -58,8 +58,8 @@ SFBIN
 │  └─ vis
 ├─ requirements.txt
 ├─ script
-│  ├─ eval_SFBIN.sh
-│  └─ run_SFBIN.sh
+│  ├─ eval_SFBI-Net.sh
+│  └─ run_SFBI-Net.sh
 ├─ train.py
 └─ utils.py
 
@@ -72,20 +72,20 @@ SFBIN
 clone this repo:
 
 ```sh
-git clone https://github.com/Mryao-yuan/SFBIN.git
-cd SFBIN
+git clone https://github.com/Mryao-yuan/SFBI-Net.git
+cd SFBI-Net
 ```
 
 ### Train
 
 ```sh
-sh script/run_SFBIN.sh
+sh script/run_SFBI-Net.sh
 ``` 
 
 ### Test
 
 ```sh
-sh script/eval_SFBIN.sh
+sh script/eval_SFBI-Net.sh
 ``` 
 
 ### Qualitative Results
@@ -101,7 +101,7 @@ sh script/eval_SFBIN.sh
 
 ### Copyright
 
-The project has been licensed by Apache-2.0. Please refer to for details. [LICENSE.txt](https://github.com/Mryao-yuan/SFBIN/LICENSE.txt)
+The project has been licensed by Apache-2.0. Please refer to for details. [LICENSE.txt](https://github.com/Mryao-yuan/SFBI-Net/LICENSE.txt)
 
 ### Thanks
 
@@ -109,5 +109,5 @@ The project has been licensed by Apache-2.0. Please refer to for details. [LICEN
 * [BIT](https://github.com/justchenhao/BIT_CD)
 * [ChangeFormer](https://github.com/wgcban/ChangeFormer)
 
-(Our SFBIN is implemented on the code provided in this repository)
+(Our SFBI-Net is implemented on the code provided in this repository)
 
